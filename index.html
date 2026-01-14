@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo list</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 28px;
+        }
+        
+        .input-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        #todo-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        #todo-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+        
+        #add-todo-button {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        #add-todo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        #add-todo-button:active {
+            transform: translateY(0);
+        }
+        
+        #todo-list {
+            list-style: none;
+        }
+        
+        .todo-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-left: 5px solid #667eea;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .todo-item:nth-child(1) { border-left-color: #FF6B6B; background: linear-gradient(135deg, #FFE5E5 0%, #FFB3B3 100%); }
+        .todo-item:nth-child(2) { border-left-color: #4ECDC4; background: linear-gradient(135deg, #E0F7F6 0%, #B8F0ED 100%); }
+        .todo-item:nth-child(3) { border-left-color: #FFE66D; background: linear-gradient(135deg, #FFF9E6 0%, #FFE66D 100%); }
+        .todo-item:nth-child(4) { border-left-color: #95E1D3; background: linear-gradient(135deg, #E8F9F7 0%, #C5F0E8 100%); }
+        .todo-item:nth-child(5) { border-left-color: #FF6B9D; background: linear-gradient(135deg, #FFE5ED 0%, #FFB3D0 100%); }
+        .todo-item:nth-child(n+6) { border-left-color: #667eea; background: linear-gradient(135deg, #E5E9FF 0%, #B3C5FF 100%); }
+        
+        .todo-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .todo-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+        
+        .todo-text {
+            flex: 1;
+            font-size: 16px;
+            color: #333;
+            word-break: break-word;
+        }
+        
+        .todo-item input[type="checkbox"]:checked ~ .todo-text {
+            text-decoration: line-through;
+            color: #999;
+        }
+        
+        .delete-btn {
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .delete-btn:hover {
+            background: #E63946;
+        }
+        
+        .empty-message {
+            text-align: center;
+            color: #999;
+            padding: 30px;
+            font-size: 16px;
+        }
+    </style>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ My Todo List</h1>
+        <div class="input-container">
+            <input type="text" id="todo-input" placeholder="Enter a todo and press Enter">
+            <button id="add-todo-button">Add Todo</button>
+        </div>
+        <ul id="todo-list"></ul>
+    </div>
+</body>
+</html> 
